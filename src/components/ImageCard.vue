@@ -6,7 +6,10 @@
 export default {
   name: "ImageCard",
   props: {
-    sourceImg: String,
+    sourceImg: {
+      type: String,
+      default: "https://placehold.co/300x300/png",
+    },
   },
 };
 </script>

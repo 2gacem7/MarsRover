@@ -37,6 +37,7 @@ export default {
   },
   methods: {
     async fetchData(rover) {
+      if (rover) this.nameOfRover = rover;
       try {
         this.isFetching = true;
         const response = await marsRoverService.getMarsRover(
@@ -45,15 +46,14 @@ export default {
         );
         const newData = response.data.photos;
         if (this.nameOfRover === "curiosity") {
-          // Merging the new data with the old data in case of infinite scroll
+          // Merging the new data with the old
           this.curiosityData = [...this.curiosityData, ...newData];
+          console.log(this.curiosityData);
           this.items = this.curiosityData;
-        } else if (rover === "opportunity") {
-          // Merging the new data with the old data in case of infinite scroll
+        } else if (this.nameOfRover === "opportunity") {
           this.opportunityData = [...this.opportunityData, ...newData];
           this.items = this.opportunityData;
-        } else if (rover === "spirit") {
-          // Merging the new data with the old data in case of infinite scroll
+        } else if (this.nameOfRover === "spirit") {
           this.spiritData = [...this.spiritData, ...newData];
           this.items = this.spiritData;
         }
@@ -66,18 +66,20 @@ export default {
     },
     selectRover(rover) {
       this.nameOfRover = rover;
-      if (rover === "opportunity" && this.opportunityData.length > 0) {
+      if (
+        this.nameOfRover === "opportunity" &&
+        this.opportunityData.length > 0
+      ) {
         return (this.items = this.opportunityData);
       }
-      if (rover === "curiosity" && this.curiosityData.length > 0) {
+      if (this.nameOfRover === "curiosity" && this.curiosityData.length > 0) {
         return (this.items = this.curiosityData);
       }
-      if (rover === "spirit" && this.spiritData.length > 0) {
+      if (this.nameOfRover === "spirit" && this.spiritData.length > 0) {
         return (this.items = this.spiritData);
       }
-      // Reset pageNumber
-      this.pageNumber = 1;
-      this.fetchData(rover);
+      this.pageNumber = 1; // Reset pageNumber
+      this.fetchData(this.nameOfRover);
     },
     handleScroll() {
       if (
