@@ -14,7 +14,7 @@ Use the "Mars Rover Photos" API section to load the first page of the "Curiosity
 ### Phase 1 response : 
 
    
-<img src="phase1.gif" width="400"/>
+<img src="phase1.gif" width="600"/>
 
 
 
@@ -25,7 +25,7 @@ As there's potentially several pages of images available for some of the rovers,
 
 ### Phase 2 response : 
 
-<img src="infinite-loop.gif" width="400"/>
+<img src="infinite-loop.gif" width="600"/>
 
 ### Phase 3 - nice to have
 
@@ -33,4 +33,4 @@ Your Product owner would like to offer some filtering to the end users. Add a si
 
 ### Phase 3 response : 
 
-<img src="phase3.gif" width="400"/>
+<img src="phase3.gif" width="600"/>
