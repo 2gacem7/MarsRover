@@ -1,5 +1,9 @@
 # The Mars Gallery Page
 
+## Author
+
+  - **Gacem Ben Ayad**
+
 ## Welcome !
 
 
@@ -8,6 +12,9 @@
 Use the "Mars Rover Photos" API section to load the first page of the "Curiosity" Rover photos. You can use a grid layout, similar to the mockup provided (feel free to be creative if you feel like it, but we're not after your design skills here :-) ).
 
 ### Phase 1 response : 
+
+   
+<img src="phase1.gif" width="400"/>
 
 
 
@@ -18,10 +25,12 @@ As there's potentially several pages of images available for some of the rovers,
 
 ### Phase 2 response : 
 
-
+<img src="infinite-loop.gif" width="400"/>
 
 ### Phase 3 - nice to have
 
 Your Product owner would like to offer some filtering to the end users. Add a sidebar/left column to your layout with a form element (please choose what you think is best: textbox, dropdown, select, radio?).  The element should give the possibility to change the Rover (Curiosity, Opportunity, Spirit)
 
 ### Phase 3 response : 
+
+<img src="phase3.gif" width="400"/>
