@@ -1,36 +1,39 @@
 <template>
   <div id="app">
-    <div class="logo-nav">
-      <img alt="Vue logo" src="./assets/logo.png" width="300" />
+    <div class="logo-nav" id="tothetop">
+      <img src="./assets/logo.png" alt="Vue logo" width="300" />
       <div class="logo-text">The Mars Files</div>
       <img src="./assets/marsLogo.gif" width="80" />
     </div>
     <el-container style="min-height: 800px; border: 1px solid #eee">
-      <el-aside width="300px" style="background-color: #ff9d6f; padding: 12px">
-        <div class="aside-title">CHOOSE YOUR VIEW !</div>
-        <div class="aside-action">
-          <el-button @click="chooseView('curiosity')">Curiosity</el-button>
-          <el-button @click="chooseView('opportunity')">Opportunity</el-button>
-          <el-button @click="chooseView('spirit')">Spirit</el-button>
-        </div>
-        <div><img src="./assets/buzz.gif" alt="" width="300" /></div>
-      </el-aside>
+      <!-- faire des classes -->
+      <SideBar @choose-view="chooseView" />
       <el-container>
         <el-main>
           <ImagesContent ref="imagesContentRef" />
         </el-main>
       </el-container>
+      <div class="goToTheTop">
+        <a href="#tothetop">
+          <div class="blockToTheTop">
+            <img src="./assets/tothetop.gif" width="100" height="100" />
+            <span>To infinity and beyond</span>
+          </div>
+        </a>
+      </div>
     </el-container>
   </div>
 </template>
 
 <script>
 import ImagesContent from "./components/ImagesContent.vue";
+import SideBar from "./layouts/SideBar.vue";
 
 export default {
   name: "App",
   components: {
     ImagesContent,
+    SideBar,
   },
   methods: {
     chooseView(rover) {
@@ -56,16 +59,26 @@ export default {
   color: #000;
 }
 
-.aside-title {
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 64px;
+.goToTheTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9999;
 }
 
-.aside-action {
+.blockToTheTop {
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-button {
+span {
   font-family: "Bebas Neue", sans-serif;
+  font-size: 16px;
+  color: #000;
+}
+
+a {
+  text-decoration: none;
 }
 </style>

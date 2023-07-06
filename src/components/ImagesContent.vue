@@ -116,4 +116,10 @@ export default {
   flex-direction: row;
   gap: 16px;
 }
+
+.isFetchingLogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 </style>
