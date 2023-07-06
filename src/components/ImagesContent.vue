@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <div class="section">
-      <div v-for="x in 10" :key="x">
-        <ImageCard />
+      <div v-for="item in items" :key="item.id">
+        <ImageCard :sourceImg="item.img_src" />
       </div>
     </div>
   </div>
@@ -10,14 +10,17 @@
 
 <script>
 import ImageCard from "./ImageCard.vue";
-//import { marsRoverService } from '@/services';
+import { marsRoverService } from "@/services";
 export default {
   name: "ImagesContent",
-  components: { ImageCard },
+  components: {
+    ImageCard,
+  },
   data() {
     return {
-      /* nameOfRover: "curiosity",
-      pageNumber: 1, */
+      nameOfRover: "curiosity",
+      pageNumber: 1,
+      items: [],
     };
   },
   mounted() {
@@ -26,12 +29,21 @@ export default {
 
   methods: {
     async fetchData() {
-      /* try {
-        const response = await marsRoverService.getMarsRover(this.nameOfRover, this.pageNumber);
-        console.log(response.data);
+      try {
+        const response = await marsRoverService.getMarsRover(
+          this.nameOfRover,
+          this.pageNumber
+        );
+        this.items = response.data.photos;
       } catch (error) {
         console.error("An error occurred:", error);
-      } */
+      }
+    },
+    selectRover(rover) {
+      console.log(rover);
+      this.nameOfRover = rover;
+      console.log(rover);
+      this.fetchData();
     },
   },
 };

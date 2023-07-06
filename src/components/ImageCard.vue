@@ -1,10 +1,13 @@
 <template>
-  <img src="https://placehold.co/300x300" alt="image_planet_mars" />
+  <img :src="sourceImg" alt="image_planet_mars" width="300" />
 </template>
 
 <script>
 export default {
   name: "ImageCard",
+  props: {
+    sourceImg: String,
+  },
 };
 </script>
 

@@ -3,22 +3,20 @@
     <div class="logo-nav">
       <img alt="Vue logo" src="./assets/logo.png" width="300" />
       <div class="logo-text">The Mars Files</div>
+      <img src="./assets/marsLogo.gif" width="80" />
     </div>
     <el-container style="min-height: 800px; border: 1px solid #eee">
       <el-aside width="300px" style="background-color: #ff9d6f; padding: 12px">
         <div class="aside-title">CHOOSE YOUR VIEW !</div>
         <div class="aside-action">
-          <el-button>Curiosity</el-button>
-          <el-button>Opportunity</el-button>
-          <el-button>Spirit</el-button>
+          <el-button @click="chooseView('curiosity')">Curiosity</el-button>
+          <el-button @click="chooseView('opportunity')">Opportunity</el-button>
+          <el-button @click="chooseView('spirit')">Spirit</el-button>
         </div>
       </el-aside>
       <el-container>
-        <el-header style="text-align: right; font-size: 12px">
-          <img src="./assets/marsLogo.gif" width="48" />
-        </el-header>
         <el-main>
-          <ImagesContent />
+          <ImagesContent ref="imagesContentRef" />
         </el-main>
       </el-container>
     </el-container>
@@ -33,6 +31,11 @@ export default {
   components: {
     ImagesContent,
   },
+  methods: {
+    chooseView(rover) {
+      this.$refs.imagesContentRef.selectRover(rover);
+    },
+  },
 };
 </script>
 
@@ -43,6 +46,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 24px;
 }
 
 .logo-text {
