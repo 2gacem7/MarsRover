@@ -1,11 +1,7 @@
 # The Mars Gallery Page
 
-##Welcome !
+## Welcome !
 
-## Features
-*DISCLAIMER* You don't need to complete all of the steps below. This app just serves as a basis of discussion for our technical talk in the next step. Do not spent more than 6 hours on this.
-
-We've split our features in steps, with an increasing complexity.
 
 ### Phase 1
 
