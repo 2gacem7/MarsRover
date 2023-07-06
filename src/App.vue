@@ -13,6 +13,7 @@
           <el-button @click="chooseView('opportunity')">Opportunity</el-button>
           <el-button @click="chooseView('spirit')">Spirit</el-button>
         </div>
+        <div><img src="./assets/buzz.gif" alt="" width="300" /></div>
       </el-aside>
       <el-container>
         <el-main>

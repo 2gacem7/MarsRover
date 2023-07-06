@@ -45,25 +45,29 @@ export default {
           this.pageNumber
         );
         const newData = response.data.photos;
-        if (this.nameOfRover === "curiosity") {
-          // Merging the new data with the old
-          this.curiosityData = [...this.curiosityData, ...newData];
-          console.log(this.curiosityData);
-          this.items = this.curiosityData;
-        } else if (this.nameOfRover === "opportunity") {
-          this.opportunityData = [...this.opportunityData, ...newData];
-          this.items = this.opportunityData;
-        } else if (this.nameOfRover === "spirit") {
-          this.spiritData = [...this.spiritData, ...newData];
-          this.items = this.spiritData;
-        }
-        this.pageNumber++;
+        this.addNewData(newData);
         this.isFetching = false;
       } catch (error) {
         console.error("An error occurred:", error);
         this.isFetching = false;
       }
     },
+
+    addNewData(newData) {
+      if (this.nameOfRover === "curiosity") {
+        // Merging the new data with the old
+        this.curiosityData = [...this.curiosityData, ...newData];
+        this.items = this.curiosityData;
+      } else if (this.nameOfRover === "opportunity") {
+        this.opportunityData = [...this.opportunityData, ...newData];
+        this.items = this.opportunityData;
+      } else if (this.nameOfRover === "spirit") {
+        this.spiritData = [...this.spiritData, ...newData];
+        this.items = this.spiritData;
+      }
+      this.pageNumber++;
+    },
+
     selectRover(rover) {
       this.nameOfRover = rover;
       if (
@@ -78,9 +82,11 @@ export default {
       if (this.nameOfRover === "spirit" && this.spiritData.length > 0) {
         return (this.items = this.spiritData);
       }
-      this.pageNumber = 1; // Reset pageNumber
+      // Reset pageNumber
+      this.pageNumber = 1;
       this.fetchData(this.nameOfRover);
     },
+
     handleScroll() {
       if (
         window.innerHeight + window.pageYOffset >=
